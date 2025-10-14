@@ -38,3 +38,4 @@ public class BungalovController {
         return bungalovService.findAll();
     }
 }
+

@@ -54,3 +54,4 @@ public class Bungalov {
     @Column(name = "musaitlik", nullable = false)
     private boolean musaitlik = true;
 }
+

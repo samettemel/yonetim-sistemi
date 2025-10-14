@@ -18,3 +18,4 @@ public interface BungalovRepository extends JpaRepository<Bungalov, Long> {
     // - deleteById(Long id): ID'ye göre bungalov silme
     // - count(): Toplam bungalov sayısını döndürme
 }
+
