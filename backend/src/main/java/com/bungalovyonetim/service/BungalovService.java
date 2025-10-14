@@ -32,4 +32,16 @@ public class BungalovService {
         // Repository katmanından tüm bungalovları getir
         return bungalovRepository.findAll();
     }
+
+    /**
+     * Yeni bir bungalov kaydeder veya mevcut bungalovu günceller
+     * Repository'nin save() metodunu kullanarak veritabanı işlemini gerçekleştirir
+     * 
+     * @param bungalov Kaydedilecek bungalov nesnesi
+     * @return Bungalov Kaydedilen/güncellenen bungalov nesnesi (ID ile birlikte)
+     */
+    public Bungalov save(Bungalov bungalov) {
+        // Repository katmanından bungalovu kaydet
+        return bungalovRepository.save(bungalov);
+    }
 }

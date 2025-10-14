@@ -3,9 +3,9 @@ package com.bungalovyonetim.controller;
 import com.bungalovyonetim.model.Bungalov;
 import com.bungalovyonetim.service.BungalovService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +36,22 @@ public class BungalovController {
     public List<Bungalov> getAllBungalovs() {
         // Service katmanından tüm bungalovları getir
         return bungalovService.findAll();
+    }
+
+    /**
+     * Yeni bir bungalov oluşturur
+     * POST /api/bungalovlar endpoint'ine gelen istekleri karşılar
+     * RequestBody olarak alınan Bungalov nesnesini veritabanına kaydeder
+     * 
+     * @param bungalov Kaydedilecek bungalov bilgileri (JSON formatında)
+     * @return ResponseEntity<Bungalov> HTTP 201 (Created) status kodu ile kaydedilen bungalov
+     */
+    @PostMapping
+    public ResponseEntity<Bungalov> createBungalov(@RequestBody Bungalov bungalov) {
+        // Service katmanından bungalovu kaydet
+        Bungalov savedBungalov = bungalovService.save(bungalov);
+        
+        // HTTP 201 Created status kodu ile kaydedilen bungalovu döndür
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedBungalov);
     }
 }
