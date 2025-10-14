@@ -2,7 +2,6 @@ package com.bungalovyonetim.service;
 
 import com.bungalovyonetim.model.Bungalov;
 import com.bungalovyonetim.repository.BungalovRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,6 @@ import java.util.List;
  * Repository katmanı ile veritabanı işlemlerini koordine eder
  */
 @Service
-@RequiredArgsConstructor
 public class BungalovService {
 
     /**
@@ -22,7 +20,7 @@ public class BungalovService {
      * @Autowired ile Spring tarafından otomatik olarak enjekte edilir
      */
     @Autowired
-    private final BungalovRepository bungalovRepository;
+    private BungalovRepository bungalovRepository;
 
     /**
      * Tüm bungalovları veritabanından getirir
